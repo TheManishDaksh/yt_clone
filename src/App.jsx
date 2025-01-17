@@ -4,7 +4,7 @@ function App() {
 
   return (
     <div>
-chaliye shuru karte hain
+      chaliye shuru karte hain
     </div>
   )
 }

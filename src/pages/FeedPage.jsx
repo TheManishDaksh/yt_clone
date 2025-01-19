@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar"
 
 function FeedPage() {
   return (
-    <div className='bg-slate-700 min-h-screen  '>
-         <div className='bg-slate-800 p-4'> 
+    <div className='bg-black min-h-screen  '>
+         <div className=' px-4 py-[10px]'> 
         <Navbar/>
         </div>
     </div>

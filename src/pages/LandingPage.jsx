@@ -7,7 +7,7 @@ export default function LandingPage() {
   const navigate = useNavigate();
 
   function handleGetStart (){
-    navigate("/feed")
+    navigate("/feed ")
   }
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 to-gray-50">

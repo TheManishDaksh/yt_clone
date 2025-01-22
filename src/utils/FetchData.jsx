@@ -10,8 +10,9 @@ const options = {
       'x-rapidapi-key': process.env.YT_API_KEY,
       'x-rapidapi-host': 'yt-api.p.rapidapi.com'
     }
-  };
-  
+  };  
+    console.log(process.env.YT_API_KEY);
+    
   export const fetchedData= async(url)=>{
     const {data} = await axios.get(`${base_url}/${url}`, options);
     return data ;

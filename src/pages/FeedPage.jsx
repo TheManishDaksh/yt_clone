@@ -8,15 +8,16 @@ export function FeedPage() {
       <div className=" px-4 py-[10px]">
         <Navbar />
       </div>
-      <div className="flex flex-col w-[30vh] p-4 ">
-        <div className="border-r-2 border-solid border-slate-800">
-          <div className="p-2">
+      <div className="flex   ">
+        <div className="w-[40vh] p-4">
+          <div >
             <Sidebar />
           </div>
           <p className="text-slate-700 text-sm">Copyright @2025 View_tube</p>
         </div>
+        <div className="p-4 ">Feed Data</div>
       </div>
-      <div className="flex justify-center">Feed Data</div>
+      
     </div>
   );
 }

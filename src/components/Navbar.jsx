@@ -16,7 +16,7 @@ function Navbar() {
         
       </div>
       <div className="text-slate-600">
-        <input className="rounded-3xl p-[6px]  w-96 bg-black border-solid border-slate-800 border-2 text-white"
+        <input className="rounded-3xl p-[6px] w-96 bg-black border-solid border-slate-800 border-2 text-white"
         type="text" placeholder="Search..." />
         
       </div>

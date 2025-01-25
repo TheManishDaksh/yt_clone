@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
 import { categories } from '../utils/constant'
 
-function Sidebar() {
+function Sidebar({setSelectedCategory, selectedCategory}) {
 
-    const [selectedCategory, setSelectedCategory] = useState("new") 
   return (
-    <div>
-        <button> 
-            {categories.map((category)=>(
-            <div className='p-3 cursor-pointer hover:bg-slate-700 rounded-lg '
-                 key={category.name}>
-                <span className='p-2 text-red-500 '>{category.icon}</span>
-                <span className=''> {category.name}</span>
-             </div>
-        ))}</button>
+    <div className='border-r-2 border-solid border-slate-800'>
+       {categories.map((category) => (
+        <button 
+          className={`flex flex-row gap-4 px-4 py-4 pr-8 hover:bg-slate-800 hover:rounded-2xl ${(selectedCategory === category.name) ? "bg-slate-800 rounded-2xl" : ""}`}
+           key={category.name}
+            onClick={()=>setSelectedCategory(category.name)}>
+          <span className='text-red-500'
+          >{category.icon}</span>
+          <span>{category.name}</span>
+        </button>
+       ))}
     </div>
   )
 }

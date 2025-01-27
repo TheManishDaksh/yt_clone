@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { fetchedData } from "../utils/FetchData";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import Video from "../components/Video";
 
 export function FeedPage() {
 
-  const [selectedCategory, setSelectedCategory] = useState("New")
+  const [selectedCategory, setSelectedCategory] = useState("New");
+  const [videos, setVideos] = useState([])
+
+  useEffect( ()=>{
+
+    setVideos([]);
+      try {
+        fetchedData(`search?part=snippet&q=${selectedCategory}`)
+        .then((data)=>setVideos(data.items));   
+        console.log("feched data");
+        console.log(videos);
+        
+      } catch (err) {
+        console.error('Error fetching data:', err);
+      }
+    
+  },[selectedCategory]);
+
   return (
     <div className="bg-black min-h-screen text-white ">
       <div className=" px-4 py-[10px]">
@@ -23,9 +42,14 @@ export function FeedPage() {
           <span className="text-4xl p-2 font-bold"
           >{selectedCategory}</span>
           <span className="text-4xl font-bold text-red-500"
-          >Videos</span>
+          >Videos</span>  
         </div>
-      </div>
+        <div>
+          {
+            <Video video={videos}/>
+          }
+        </div>
+      </div> 
       
     </div>
   );

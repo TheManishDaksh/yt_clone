@@ -1,19 +1,21 @@
-import axios from "axios"
+import axios from 'axios';
 
-export const base_url = 'https://yt-api.p.rapidapi.com/home';
+export const BASE_URL = 'https://youtube-v31.p.rapidapi.com';
 
 const options = {
-    params : {
-        maxResult: 50
-    },
-    headers: {
-      'x-rapidapi-key': process.env.YT_API_KEY,
-      'x-rapidapi-host': 'yt-api.p.rapidapi.com'
-    }
-  };  
-    console.log(process.env.YT_API_KEY);
-    
-  export const fetchedData= async(url)=>{
-    const {data} = await axios.get(`${base_url}/${url}`, options);
-    return data ;
-  }
+  params: {
+    maxResults: 50,
+  },
+  headers: {
+    'X-RapidAPI-Key': 'f4899d3debmsh89e9fb5added327p1a83afjsn96a150d1a46d',
+    'X-RapidAPI-Host': 'youtube-v31.p.rapidapi.com',
+  },
+};
+
+export const fetchedData = async (url) => {
+  const { data } = await axios.get(`${BASE_URL}/${url}`, options);
+  console.log(data);
+  
+  return data;
+  
+};

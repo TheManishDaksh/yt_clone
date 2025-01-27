@@ -7,21 +7,15 @@ import Video from "../components/Video";
 export function FeedPage() {
 
   const [selectedCategory, setSelectedCategory] = useState("New");
-  const [videos, setVideos] = useState([])
+  const [videos, setVideos] = useState(null)
 
   useEffect( ()=>{
 
-    setVideos([]);
-      try {
+    setVideos(null);
+
         fetchedData(`search?part=snippet&q=${selectedCategory}`)
-        .then((data)=>setVideos(data.items));   
-        console.log("feched data");
-        console.log(videos);
-        
-      } catch (err) {
-        console.error('Error fetching data:', err);
-      }
-    
+        .then((data)=>setVideos(data.items));  
+      
   },[selectedCategory]);
 
   return (
@@ -46,7 +40,7 @@ export function FeedPage() {
         </div>
         <div>
           {
-            <Video video={videos}/>
+            <Video videos={videos}/>
           }
         </div>
       </div> 

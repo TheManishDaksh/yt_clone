@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchedData } from "../utils/FetchData";
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
-import Video from "../components/Video";
+import { Navbar, Sidebar, Video } from "../components";
 
 export function FeedPage() {
 

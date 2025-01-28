@@ -1,6 +1,5 @@
 import React from 'react';
-import VideoCard from './VideoCard';
-import ChannelCard from './ChannelCard';
+import {VideoCard, ChannelCard} from './';
 
 function Video({ videos }) {
   return (

@@ -18,14 +18,16 @@ function VideoCard({video : {id :{videoId}, snippet},channelItem}) {
       </Link>
     </div>
     <div className='text-sm text-slate-400 font-semibold'>
+    <Link to={`channel/${channelItem?.snippet?.channelId}`}>
       <span>
         <AccountCircleIcon style={{fontSize:"large"}}/>
         </span>
-      <span>
-      <Link className='pr-1 pl-2'>
+      <span className='pr-1 pl-2'>
+    
         {snippet?.channelTitle || demoChannelTitle}
-      </Link>
+      
       </span>
+      </Link>
       <span>
         <CheckCircleIcon style={{fontSize:"small", color: "gray" }} />
       </span>

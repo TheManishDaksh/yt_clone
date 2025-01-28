@@ -4,10 +4,10 @@ import ChannelCard from './ChannelCard';
 
 function Video({ videos }) {
   return (
-    <div className='grid grid-cols-3 text-white gap-1 '>
+    <div className='grid grid-cols-3 text-white gap-1'>
       { videos && videos.map((item, idx) => (
         <div key={idx}>
-          {item.id.videoId && <VideoCard video={item}/> }
+          {item.id.videoId && <VideoCard video={item} channelItem={item}/> }
           {item.id.channelId && <ChannelCard channelItem={item}/>}
         </div>
       ))}

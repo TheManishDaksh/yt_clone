@@ -24,7 +24,7 @@ export function FeedPage() {
         <Navbar />
       </div>
       <div className="flex   ">
-        <div className="w-[40vh] p-4">
+        <div className="w-[40vh] p-6"> 
           <div >
             <Sidebar 
             selectedCategory={selectedCategory}
@@ -32,7 +32,8 @@ export function FeedPage() {
           </div>
           <p className="text-slate-700 text-sm">Copyright @2025 View_tube</p>
         </div>
-        <div className="p-4 "> 
+        <div>
+        <div className=" "> 
           <span className="text-4xl p-2 font-bold"
           >{selectedCategory}</span>
           <span className="text-4xl font-bold text-red-500"
@@ -42,6 +43,7 @@ export function FeedPage() {
           {
             <Video videos={videos}/>
           }
+        </div>
         </div>
       </div> 
       

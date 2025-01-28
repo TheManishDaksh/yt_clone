@@ -18,6 +18,10 @@ export const logo = 'https://i.ibb.co/s9Qys2j/logo.png';
 export const categories = [
   { name: 'New', icon: <HomeIcon />, },
   { name: 'JS Mastery', icon: <CodeIcon />, },
+  { name: 'Harkirat Singh', icon: <CodeIcon />, },
+  { name: 'Chai aur Code', icon: <CodeIcon />, },
+  { name: 'Arpit Bhayani', icon: <CodeIcon />, },
+  { name: 'freeCodeCamp.org', icon: <CodeIcon />, },
   { name: 'Coding', icon: <CodeIcon />, },
   { name: 'ReactJS', icon: <CodeIcon />, },
   { name: 'NextJS', icon: <CodeIcon />, },

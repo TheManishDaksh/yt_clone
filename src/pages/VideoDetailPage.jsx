@@ -2,24 +2,30 @@ import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { fetchedData } from "../utils/FetchData";
 import { useParams } from "react-router-dom";
-import { Navbar } from "../components";
+import { Navbar, Loader } from "../components";
 
 function VideoDetailPage() {
   const [videoDetail, setVideoDetail] = useState(null);
-  
+  const [suggestedVideos, setSuggestedVideos] = useState(null)
   const { id } = useParams();
 
   useEffect(() => {
     fetchedData(`video/part=snippet,statistics&id=${id}`)
     .then((data) =>
-      setVideoDetail(data.items[0])
+      setVideoDetail(data.items)
     );
+
+    fetchedData(`video/part=snippet,relateVideoToId=${id}`)
+    .then((data)=>setSuggestedVideos(data.items))
+
   }, [id]);
 
-  // const {
-  //   snippet: { title, channelId, channelTitle },
-  //   statistics: { likeCount, viewCount },
-  // } = videoDetail;
+  if(!videoDetail) return <Loader/>
+
+  const {
+    snippet: { title, channelId, channelTitle },
+    statistics: { likeCount, viewCount },
+  } = videoDetail;
   return (
     <div className="bg-black text-white py-4 px-6">
       <div>
@@ -29,7 +35,7 @@ function VideoDetailPage() {
         <div className="px-12 pt-16">
           <ReactPlayer url={`https://www.youtube.com/watch?v=${id}`} controls />
         </div>
-        <div>title</div>
+        <div>{title}</div>
       </div>
     </div>
   );

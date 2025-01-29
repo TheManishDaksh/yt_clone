@@ -37,7 +37,7 @@ export function FeedPage() {
           <span className="text-4xl font-bold text-red-500"
           >Videos</span>  
         </div>
-        <div>
+        <div >
           {
             <Video videos={videos}/>
           }

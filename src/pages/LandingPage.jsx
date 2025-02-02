@@ -32,7 +32,7 @@ export default function LandingPage() {
             Join our community and start your journey today.
           </p>
           <div onClick={handleGetStart}
-                className='flex items-center pl-80 pb-6'> 
+                className='flex justify-center pb-4 lh:pl-80 lg:pb-6 md:pl-64 md:pb-6'> 
                 <button className='bg-red-600 rounded-3xl text-white p-4 font-bold text-lg'>Get Started</button>
             </div>
           {/* Features Section */}

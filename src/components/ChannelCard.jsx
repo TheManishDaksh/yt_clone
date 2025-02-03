@@ -10,7 +10,7 @@ function ChannelCard({channelItem}) {
         <img style={{width:"180px", borderRadius:"50%"}}
         src={channelItem?.snippet?.thumbnails?.high.url || demoProfilePicture} alt={channelItem?.snippet?.title } />
         <p className='text-white font-bold text-lg py-2 pl-8'>
-          {channelItem?.snippet?.title}</p>
+          {channelItem?.snippet?.title || demoChannelTitle}</p>
         </div>
       </Link>
     </div>

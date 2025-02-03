@@ -6,10 +6,11 @@ import {demoVideoUrl, demoVideoTitle, demoThumbnailUrl, demoChannelTitle} from "
 
 function VideoCard({video : {id :{videoId}, snippet},channelItem}) {
   return (
-    <div className='p-1 max-w-[360px]'>
+    <div className='p-1 max-w-[340px] md:max-w-[360px]'>
       <div> 
        <Link to={videoId ? `video/${videoId}` : "video/cV2gBU6hKfY"} >
-        <img src={snippet?.thumbnails?.high?.url || demoThumbnailUrl } alt={snippet?.title} />
+        <img src={snippet?.thumbnails?.high?.url || demoThumbnailUrl } alt={snippet?.title} 
+        className='rounded-[25%]'/>
        </Link>
     </div>
     <div className='font-bold text-slate-200'>

@@ -17,18 +17,18 @@ export function FeedPage() {
   },[selectedCategory]);
 
   return (
-    <div className="bg-black min-h-screen text-white ">
+    <div className="bg-black min-h-screen min-w-fit text-white ">
       <div className=" px-4 py-[10px]">
         <Navbar />
       </div>
-      <div className="flex   ">
-        <div className="w-[40vh] p-6"> 
+      <div className="flex flex-col md:flex-row lg:flex-row">
+        <div className="w-[70vh] p-6"> 
           <div >
             <Sidebar 
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}/>
           </div>
-          <p className="text-slate-700 text-sm">Copyright @2025 View_tube</p>
+          
         </div>
         <div>
         <div className=" "> 
@@ -41,6 +41,7 @@ export function FeedPage() {
           {
             <Video videos={videos}/>
           }
+          <p className="text-slate-700 text-sm">Copyright @2025 View_tube</p>
         </div>
         </div>
       </div> 

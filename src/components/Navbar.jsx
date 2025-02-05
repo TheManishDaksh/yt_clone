@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { logo } from "../utils/constant";
+import Searchbar from "./Searchbar";
 
 function Navbar() {
   return (
@@ -13,11 +14,10 @@ function Navbar() {
         </Link>
         
       </div>
-      <div className="text-slate-600">
-        <input className="rounded-3xl p-[6px] w-[120px] md:w-96 lg:w-96 bg-black border-solid border-slate-800 border-2 text-white"
-        type="text" placeholder="Search..." />
-        
+      <div >
+       <Searchbar/>
       </div>
+
       <div>
         <img className="rounded-full"
         src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIf4R5qPKHPNMyAqV-FjS_OTBB8pfUV29Phg&s' alt="profile" width={"30px"} />

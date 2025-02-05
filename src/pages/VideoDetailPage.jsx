@@ -28,8 +28,8 @@ function VideoDetailPage() {
     statistics: { likeCount, viewCount },
   } = videoDetail;
   return (
-   <div className="flex justify-center items-center">
-    <div className="bg-black min-h-screen text-white grid grid-cols-1">
+   <div className="bg-black flex justify-center items-center">
+    <div className=" min-h-screen text-white grid grid-cols-1">
       <div className=" top-0 z-50 py-3">
         <Navbar />
       </div>

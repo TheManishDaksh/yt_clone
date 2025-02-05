@@ -6,7 +6,7 @@ import {demoVideoUrl, demoVideoTitle, demoThumbnailUrl, demoChannelTitle} from "
 
 function VideoCard({video : {id :{videoId}, snippet},channelItem}) {
   return (
-    <div className='p-1 max-w-[340px] md:max-w-[360px]'>
+    <div className='p-1 max-w-[320px] md:max-w-[360px]'>
       <div> 
        <Link to={videoId ? `video/${videoId}` : "video/cV2gBU6hKfY"} >
         <img src={snippet?.thumbnails?.high?.url || demoThumbnailUrl } alt={snippet?.title} 

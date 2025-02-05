@@ -2,18 +2,22 @@ import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { fetchedData } from "../utils/FetchData";
 import { useParams,Link } from "react-router-dom";
-import { Navbar, Loader, Video } from "../components";
+import { Navbar, Loader, Video} from "../components";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function VideoDetailPage() {
   const [videoDetail, setVideoDetail] = useState(null);
+  const [suggestedVideos, setSuggestedVideos] = useState(null)
   const { id } = useParams();
 
   useEffect(() => {
     fetchedData(`videos?part=snippet,statistics&id=${id}`)
     .then((data) =>
       setVideoDetail(data.items[0]))
+
+    fetchedData(`search?part=snippet&relatedToVideoId=${id}&type=video`)
+    .then((data)=>setSuggestedVideos(data.items))
 
   }, [id]);
 
@@ -30,7 +34,7 @@ function VideoDetailPage() {
         <Navbar />
       </div>
       
-      <div className="max-w-[1400px] mx-auto px-4 md:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-1 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-6 pt-6">
           {/* Video Player Section */}
           <div className="">
@@ -44,23 +48,30 @@ function VideoDetailPage() {
               />
             </div>
             
-            <div className="mt-4 text-lg md:text-xl font-semibold">
+            <div className="mt-4 text-lg md:text-xl font-semibold px-2">
               {title}
             </div>
             <div>
               <div>
-                <Link to={`channel/${channelId}`}>
+                <Link className="flex gap-4 items-center py-4"
+                to={`channel/${channelId}`}>
                 <span><AccountCircleIcon fontSize="large"/></span>
                 <span>{channelTitle}</span>
                 </Link>
               </div>
-              <div className="flex justify-between">
-                <div className="p-2 border-2 border-slate-600 rounded-3xl">
+              <div className="flex justify-between items-center text-sm">
+                <div className="p-2 border-2 shadow shadow-white border-slate-600 rounded-3xl">
                   <span>{viewCount} views</span>
                 </div>
-                <div className="p-2 border-2 border-slate-600 rounded-3xl">
-                  <span><FavoriteIcon fontSize="large" color="red"/></span>
+                <div className="p-2 border-2 flex gap-1 border-slate-600 shadow shadow-white rounded-3xl ">
+                  <span><FavoriteIcon fontSize="medium" /></span>
                   <span>{likeCount}</span>
+                </div>
+              </div>
+              <div className="pt-6">
+                <button className=" flex px-2 py-2 bg-slate-800 rounded-full border-2 border-slate-500 shadow shadow-white">Suggested Videos</button>
+                <div>
+                  <Video videos={suggestedVideos} />
                 </div>
               </div>
             </div>

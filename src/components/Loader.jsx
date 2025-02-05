@@ -7,6 +7,7 @@ function Loader() {
         <div className='flex flex-col items-center'>   
         <CircularProgress/>
         <p className='py-2'>Loading...</p>
+        <p>Api is from Rapid Api</p>
     
     </div>
   

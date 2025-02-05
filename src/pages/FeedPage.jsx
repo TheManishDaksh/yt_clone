@@ -18,11 +18,11 @@ export function FeedPage() {
 
   return (
     <div className="bg-black min-h-screen min-w-fit text-white ">
-      <div className=" px-4 py-[10px]">
+      <div className=" px-1 py-[10px]">
         <Navbar />
       </div>
       <div className="flex flex-col md:flex-row lg:flex-row">
-        <div className="w-[70vh] p-6"> 
+        <div className="w-[70vh] py-4 px-1"> 
           <div >
             <Sidebar 
             selectedCategory={selectedCategory}
@@ -37,11 +37,11 @@ export function FeedPage() {
           <span className="text-4xl font-bold text-red-500"
           >Videos</span>  
         </div>
-        <div >
+        <div className="bg-black min-h-screen  ">
           {
             <Video videos={videos}/>
           }
-          <p className="text-slate-700 text-sm">Copyright @2025 View_tube</p>
+          <p className="text-slate-700 text-sm flex justify-center">Copyright @2025 View_tube</p>
         </div>
         </div>
       </div> 

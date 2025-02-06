@@ -20,7 +20,10 @@ useEffect(()=>{
         <div> 
             <div className='text-white font-bold text-3xl'
             > <span>Results for</span> <span className='text-red-500'>{searchItem}</span></div>
-            <div><Video videos={searchVideos}/></div>
+            <div>{
+            searchVideos ? <Video videos={searchVideos}/> : 
+              <p className='text-3xl font-bold flex justify-center items-center'>No Such Items Found</p>}
+            </div> 
         </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { fetchedData } from "../utils/FetchData";
-import { useParams,Link } from "react-router-dom";
+import { useParams,Link, data } from "react-router-dom";
 import { Navbar, Loader, Video} from "../components";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -9,6 +9,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 function VideoDetailPage() {
   const [videoDetail, setVideoDetail] = useState(null);
   const [suggestedVideos, setSuggestedVideos] = useState(null)
+  const [comments, setcomments] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -18,6 +19,9 @@ function VideoDetailPage() {
 
     fetchedData(`search?part=snippet&relatedToVideoId=${id}&type=video`)
     .then((data)=>setSuggestedVideos(data.items))
+
+    fetchedData(`comments?part=snippet&id=${id}`)
+    .then((data)=>setcomments(data.items))
 
   }, [id]);
 
@@ -71,7 +75,12 @@ function VideoDetailPage() {
               <div className="pt-6">
                 <button className=" flex px-2 py-2 bg-slate-800 rounded-full border-2 border-slate-500 shadow shadow-white">Suggested Videos</button>
                 <div>
+                <div className="hidden lg:flex">
+                  <p>{comments}</p>
+                </div>
+                <div>
                   <Video videos={suggestedVideos} />
+                </div>
                 </div>
               </div>
             </div>

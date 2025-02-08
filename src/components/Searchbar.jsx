@@ -7,8 +7,8 @@ function Searchbar() {
 
   function handleSearch(e) {
     e.preventDefault();
-    if (searchItem.trim()) {
-      navigate(`/search/${searchItem.trim()}`);
+    if (searchItem) {
+      navigate(`/feed/search/${searchItem}`);
       setSearchItem('');
     }
   }

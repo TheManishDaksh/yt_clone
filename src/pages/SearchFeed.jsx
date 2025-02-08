@@ -6,10 +6,12 @@ import { Navbar, Video } from '../components'
 function SearchFeed() {
     
 const {searchItem} = useParams()
+console.log(searchItem);
+
 const [searchVideos, setSearchVideos] = useState(null)
 
 useEffect(()=>{
-    fetchedData(`search?${searchItem}&part=snippet`)
+    fetchedData(`search?part=snippet&q=${searchItem}`)
     .then((data)=>setSearchVideos(data.items))
 },[searchItem])
   return (
@@ -22,7 +24,7 @@ useEffect(()=>{
             > <span>Results for</span> <span className='text-red-500'>{searchItem}</span></div>
             <div>{
             searchVideos ? <Video videos={searchVideos}/> : 
-              <p className='text-3xl font-bold flex justify-center items-center'>No Such Items Found</p>}
+              <p className='text-3xl font-bold flex justify-center items-center'> No Such Items Found </p>}
             </div> 
         </div>
     </div>
